@@ -1,7 +1,6 @@
 package edu.icet.com.bitezza.model.entity;
 
 import lombok.*;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 @Setter
 @Getter
