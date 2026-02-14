@@ -38,4 +38,18 @@ public class ProductService {
 
     }
 
+    public ProductDTO getProduct(String name) {
+
+        Product product = productRepository.findByName(name);
+
+        return new ProductDTO(
+                product.getId(),
+                product.getName(),
+                product.getDescription(),
+                product.getPrice(),
+                product.getImageUrl(),
+                product.isActive(),
+                product.getCategoryName()
+        );
+    }
 }
