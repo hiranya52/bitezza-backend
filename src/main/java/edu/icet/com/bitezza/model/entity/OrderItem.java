@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 @Getter
 @Setter
@@ -12,17 +11,19 @@ import java.util.List;
 @AllArgsConstructor
 @ToString
 @Entity
-public class Order {
+public class OrderItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long orderId;
+    private Long id;
 
-    private String orderStatus;
+    private Integer quantity;
+    private BigDecimal price;
 
-    private BigDecimal totalValue;
+    @ManyToOne
+    @JoinColumn(name = "order_id")
+    private Order order;
 
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
-    private List<OrderItem> items;
+    private Long productId;
 
 }
