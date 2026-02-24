@@ -24,4 +24,18 @@ public class OrderItemMapper {
         return item;
     }
 
+    // Entity → DTO
+    public static OrderItemDTO toDTO(OrderItem entity) {
+
+        if (entity == null) return null;
+
+        OrderItemDTO dto = new OrderItemDTO();
+        dto.setProductId(entity.getProductId());
+        dto.setQuantity(entity.getQuantity());
+        dto.setPrice(entity.getPrice());
+
+        return dto;
+    }
+
+
 }
