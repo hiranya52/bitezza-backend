@@ -12,7 +12,7 @@ import java.util.List;
 @ToString
 public class OrderDTO {
 
-    private String orderId;
+    private Long orderId;
     private String orderStatus;
     private String serviceType;
     private BigDecimal totalValue;

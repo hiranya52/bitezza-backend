@@ -1,11 +1,18 @@
 package edu.icet.com.bitezza.controller;
 
+import edu.icet.com.bitezza.model.dto.OrderDTO;
 import edu.icet.com.bitezza.model.dto.OrderItemDTO;
+import edu.icet.com.bitezza.model.entity.Order;
+import edu.icet.com.bitezza.service.OrderService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/order")
 public class OrderController {
+
+    @Autowired
+    OrderService orderService;
 
     @GetMapping
     public String loadOrder(){
@@ -13,10 +20,12 @@ public class OrderController {
     }
 
 
-    @PostMapping("/addOrder")
-    public void addOrder(@RequestBody OrderItemDTO orderItemDTO){
+    @PostMapping("/add")
+    public void addOrder(@RequestBody OrderDTO order){
 
-
+        if (order != null){
+            orderService.addOrder(order);
+        }
 
     }
 

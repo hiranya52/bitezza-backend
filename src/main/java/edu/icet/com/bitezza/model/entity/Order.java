@@ -12,14 +12,14 @@ import java.util.List;
 @AllArgsConstructor
 @ToString
 @Entity
+@Table(name = "orders") // rename from 'order' to 'orders'
 public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String orderId;
+    private Long orderId;
 
     private String orderStatus;
-
     private String serviceType;
 
     private BigDecimal totalValue;
