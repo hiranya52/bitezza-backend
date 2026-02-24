@@ -2,13 +2,10 @@ package edu.icet.com.bitezza.mapper;
 
 import edu.icet.com.bitezza.model.dto.OrderDTO;
 import edu.icet.com.bitezza.model.entity.Order;
-import edu.icet.com.bitezza.model.entity.OrderItem;
 
-import java.util.List;
 import java.util.stream.Collectors;
 
 public class OrderMapper {
-
 
     public static Order toEntity(OrderDTO dto) {
         if (dto == null) return null;
@@ -16,7 +13,7 @@ public class OrderMapper {
         Order order = new Order();
         order.setOrderId(dto.getOrderId());
         order.setOrderStatus(dto.getOrderStatus());
-        order.setServiceType(dto.getServiceType()); // <-- added
+        order.setServiceType(dto.getServiceType());
         order.setTotalValue(dto.getTotalValue());
 
         if (dto.getItems() != null) {
@@ -37,19 +34,19 @@ public class OrderMapper {
         OrderDTO dto = new OrderDTO();
         dto.setOrderId(order.getOrderId());
         dto.setOrderStatus(order.getOrderStatus());
-        dto.setServiceType(order.getServiceType()); // <-- added
+        dto.setServiceType(order.getServiceType());
         dto.setTotalValue(order.getTotalValue());
 
         if (order.getItems() != null) {
-            dto.setItems(order.getItems()
-                    .stream()
-                    .map(OrderItemMapper::toDTO)
-                    .toList()
+            dto.setItems(
+                    order.getItems()
+                            .stream()
+                            .map(OrderItemMapper::toDTO)
+                            .toList()
             );
         }
 
         return dto;
     }
-
 
 }
