@@ -34,5 +34,29 @@ public class OrderMapper {
     }
 
 
+    public static OrderDTO toDTO(Order order) {
+
+        if (order == null) return null;
+
+        OrderDTO dto = new OrderDTO();
+
+        dto.setOrderId(order.getOrderId());
+        dto.setOrderStatus(order.getOrderStatus());
+        dto.setTotalValue(order.getTotalValue());
+
+        if (order.getItems() != null) {
+            dto.setItems(
+                    order.getItems()
+                            .stream()
+                            .map(OrderItemMapper::toDTO)
+                            .toList()
+            );
+        }
+
+        // serviceType is NOT mapped (not in entity)
+
+        return dto;
+    }
+
 
 }
