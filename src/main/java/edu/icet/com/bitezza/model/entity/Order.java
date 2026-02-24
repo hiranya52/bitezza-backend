@@ -20,8 +20,7 @@ public class Order {
     private Long orderId;
 
     private String orderStatus;
-    private String serviceType;
-
+    private String serviceType;   // DELIVERY / PICKUP
     private BigDecimal totalValue;
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
