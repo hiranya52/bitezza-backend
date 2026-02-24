@@ -8,9 +8,9 @@ import java.util.stream.Collectors;
 public class OrderMapper {
 
     public static Order toEntity(OrderDTO dto) {
-        if (dto == null) return null;
 
         Order order = new Order();
+
         order.setOrderId(dto.getOrderId());
         order.setOrderStatus(dto.getOrderStatus());
         order.setServiceType(dto.getServiceType());
@@ -20,7 +20,7 @@ public class OrderMapper {
             order.setItems(
                     dto.getItems()
                             .stream()
-                            .map(itemDTO -> OrderItemMapper.toEntity(itemDTO, order))
+                            .map(i -> OrderItemMapper.toEntity(i, order))
                             .collect(Collectors.toList())
             );
         }
@@ -29,9 +29,9 @@ public class OrderMapper {
     }
 
     public static OrderDTO toDTO(Order order) {
-        if (order == null) return null;
 
         OrderDTO dto = new OrderDTO();
+
         dto.setOrderId(order.getOrderId());
         dto.setOrderStatus(order.getOrderStatus());
         dto.setServiceType(order.getServiceType());
@@ -48,5 +48,4 @@ public class OrderMapper {
 
         return dto;
     }
-
 }
