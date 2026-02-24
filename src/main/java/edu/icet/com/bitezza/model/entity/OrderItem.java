@@ -15,15 +15,14 @@ public class OrderItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+    private Long id;
 
+    private Long productId;
     private Integer quantity;
     private BigDecimal price;
 
     @ManyToOne
     @JoinColumn(name = "order_id")
     private Order order;
-
-    private Long productId;
 
 }

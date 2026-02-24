@@ -20,6 +20,8 @@ public class Order {
 
     private String orderStatus;
 
+    private String serviceType;
+
     private BigDecimal totalValue;
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)

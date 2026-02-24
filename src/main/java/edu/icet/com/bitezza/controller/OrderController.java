@@ -1,8 +1,7 @@
 package edu.icet.com.bitezza.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import edu.icet.com.bitezza.model.dto.OrderItemDTO;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/order")
@@ -13,6 +12,13 @@ public class OrderController {
         return "Load Order Controller..";
     }
 
+
+    @PostMapping("/addOrder")
+    public void addOrder(@RequestBody OrderItemDTO orderItemDTO){
+
+
+
+    }
 
 
 }
