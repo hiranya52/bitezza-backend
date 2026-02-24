@@ -16,6 +16,7 @@ public class OrderMapper {
         Order order = new Order();
         order.setOrderId(dto.getOrderId());
         order.setOrderStatus(dto.getOrderStatus());
+        order.setServiceType(dto.getServiceType()); // <-- added
         order.setTotalValue(dto.getTotalValue());
 
         if (dto.getItems() != null) {
@@ -30,14 +31,13 @@ public class OrderMapper {
         return order;
     }
 
-
-
     public static OrderDTO toDTO(Order order) {
         if (order == null) return null;
 
         OrderDTO dto = new OrderDTO();
         dto.setOrderId(order.getOrderId());
         dto.setOrderStatus(order.getOrderStatus());
+        dto.setServiceType(order.getServiceType()); // <-- added
         dto.setTotalValue(order.getTotalValue());
 
         if (order.getItems() != null) {
@@ -50,7 +50,6 @@ public class OrderMapper {
 
         return dto;
     }
-
 
 
 }
