@@ -8,10 +8,10 @@ import java.math.BigDecimal;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 public class OrderItemDTO {
 
-    private String productId;      // String now
+    private String productId;
+
     private Integer quantity;
     private BigDecimal price;
 
