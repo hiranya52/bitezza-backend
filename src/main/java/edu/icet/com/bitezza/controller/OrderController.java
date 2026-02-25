@@ -7,6 +7,8 @@ import edu.icet.com.bitezza.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/order")
 @CrossOrigin
@@ -33,6 +35,12 @@ public class OrderController {
             return orderService.addOrder(order);
         }
         return null;
+    }
+
+
+    @GetMapping("/getAll")
+    public List<OrderDTO> getAllOrders(){
+        return orderService.getAllOrders();
     }
 
 

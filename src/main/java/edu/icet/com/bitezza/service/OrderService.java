@@ -11,6 +11,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -62,4 +63,15 @@ public class OrderService {
     public int getLastOrderId() {
         return orderRepository.findLastOrderId();
     }
+
+    public List<OrderDTO> getAllOrders() {
+        List<OrderDTO> orderDTOS = new ArrayList<>();
+        List<Order> orders = orderRepository.findAll();
+
+        for(Order order : orders){
+            orderDTOS.add(OrderMapper.toDTO(order));
+        }
+        return orderDTOS;
+    }
+
 }
