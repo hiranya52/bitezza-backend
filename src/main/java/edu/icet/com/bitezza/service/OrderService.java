@@ -60,7 +60,6 @@ public class OrderService {
     }
 
     public int getLastOrderId() {
-
-
+        return orderRepository.findLastOrderId();
     }
 }
