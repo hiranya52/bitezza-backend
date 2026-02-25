@@ -59,4 +59,8 @@ public class OrderService {
         return OrderMapper.toDTO(saved);
     }
 
+    public int getLastOrderId() {
+
+
+    }
 }
