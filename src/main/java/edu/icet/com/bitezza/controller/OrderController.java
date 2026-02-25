@@ -21,12 +21,12 @@ public class OrderController {
 
 
     @PostMapping("/add")
-    public void addOrder(@RequestBody OrderDTO order){
+    public OrderDTO addOrder(@RequestBody OrderDTO order){
 
         if (order != null){
-            orderService.addOrder(order);
+            return orderService.addOrder(order);
         }
-
+        return null;
     }
 
 
