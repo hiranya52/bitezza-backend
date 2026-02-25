@@ -1,5 +1,7 @@
 package edu.icet.com.bitezza.model.dto;
 
+import edu.icet.com.bitezza.model.enums.OrderStatus;
+import edu.icet.com.bitezza.model.enums.ServiceType;
 import lombok.*;
 import java.math.BigDecimal;
 import java.util.List;
@@ -11,8 +13,8 @@ import java.util.List;
 public class OrderDTO {
 
     private Long orderId;
-    private String orderStatus;
-    private String serviceType;
+    private OrderStatus orderStatus;
+    private ServiceType serviceType;
     private BigDecimal totalValue;
 
     private List<OrderItemDTO> items;
