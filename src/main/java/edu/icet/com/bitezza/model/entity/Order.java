@@ -1,5 +1,7 @@
 package edu.icet.com.bitezza.model.entity;
 
+import edu.icet.com.bitezza.model.enums.OrderStatus;
+import edu.icet.com.bitezza.model.enums.ServiceType;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -17,8 +19,10 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long orderId;
 
-    private String orderStatus;
-    private String serviceType;
+    @Enumerated(EnumType.STRING)
+    private OrderStatus orderStatus;
+    @Enumerated(EnumType.STRING)
+    private ServiceType serviceType;
 
     private BigDecimal totalValue;
 
