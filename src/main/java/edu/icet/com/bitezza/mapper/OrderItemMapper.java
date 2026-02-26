@@ -17,7 +17,7 @@ public class OrderItemMapper {
 
         Product product = new Product();
         product.setId(dto.getProductId());   // BIT-100
-
+        product.setName(dto.getProductName());
 
         item.setProduct(product);
 
@@ -29,6 +29,7 @@ public class OrderItemMapper {
         OrderItemDTO dto = new OrderItemDTO();
 
         dto.setProductId(item.getProduct().getId());
+        dto.setProductName(item.getProductName());
         dto.setQuantity(item.getQuantity());
         dto.setPrice(item.getPrice());
 
