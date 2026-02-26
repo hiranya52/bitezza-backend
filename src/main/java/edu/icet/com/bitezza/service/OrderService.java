@@ -24,13 +24,6 @@ public class OrderService {
     @Autowired
     ProductRepository productRepository;
 
-//    public OrderDTO addOrder(OrderDTO order) {
-//
-//        Order order1 = orderRepository.save(OrderMapper.toEntity(order));
-//        return OrderMapper.toDTO(order1);
-//
-//    }
-
     @Transactional
     public OrderDTO addOrder(OrderDTO dto) {
         Order order = new Order();
@@ -44,6 +37,7 @@ public class OrderService {
                 OrderItem item = new OrderItem();
                 item.setQuantity(i.getQuantity());
                 item.setPrice(i.getPrice());
+                item.setProductName(i.getProductName());
                 item.setOrder(order);
 
                 Product product = productRepository.findById(i.getProductId())
@@ -59,6 +53,7 @@ public class OrderService {
         Order saved = orderRepository.save(order); // <-- this inserts new order + items
         return OrderMapper.toDTO(saved);
     }
+
 
     public int getLastOrderId() {
         return orderRepository.findLastOrderId();
