@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface OrderRepository extends JpaRepository<Order,String> {
+public interface OrderRepository extends JpaRepository<Order,Long> {
 
     @Query("select coalesce(max(o.orderId), 0) from Order o")
     int findLastOrderId();

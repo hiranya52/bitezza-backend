@@ -5,6 +5,7 @@ import edu.icet.com.bitezza.model.dto.OrderDTO;
 import edu.icet.com.bitezza.model.entity.Order;
 import edu.icet.com.bitezza.model.entity.OrderItem;
 import edu.icet.com.bitezza.model.entity.Product;
+import edu.icet.com.bitezza.model.enums.OrderStatus;
 import edu.icet.com.bitezza.repository.OrderRepository;
 import edu.icet.com.bitezza.repository.ProductRepository;
 import jakarta.transaction.Transactional;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -67,6 +69,28 @@ public class OrderService {
             orderDTOS.add(OrderMapper.toDTO(order));
         }
         return orderDTOS;
+    }
+
+    public void moveToNextStatus(Long id) {
+
+        Order order = orderRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Order not found"));
+
+        OrderStatus current = OrderStatus.valueOf(String.valueOf(order.getOrderStatus()));
+
+        OrderStatus next;
+
+        switch (current) {
+            case PREPARING -> next = OrderStatus.COOKING;
+            case COOKING   -> next = OrderStatus.READY;
+            case READY     -> next = OrderStatus.FINISHED;
+            default        -> throw new RuntimeException("Order already finished");
+        }
+
+        order.setOrderStatus(OrderStatus.valueOf(next.name()));
+
+        orderRepository.save(order);
+
     }
 
 }

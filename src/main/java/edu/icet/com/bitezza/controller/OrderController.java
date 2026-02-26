@@ -43,5 +43,10 @@ public class OrderController {
         return orderService.getAllOrders();
     }
 
+    @PutMapping("/nextStatus/{id}")
+    public void moveToNextStatus(@PathVariable Long id) {
+        orderService.moveToNextStatus(id);
+    }
+
 
 }
