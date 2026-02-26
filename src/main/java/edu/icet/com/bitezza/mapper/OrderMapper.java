@@ -26,6 +26,7 @@ public class OrderMapper {
                                 OrderItem item = new OrderItem();
                                 item.setQuantity(i.getQuantity());
                                 item.setPrice(i.getPrice());
+                                item.setProductName(i.getProductName());
                                 item.setOrder(order);
 
                                 Product product = productRepository.findById(i.getProductId())
