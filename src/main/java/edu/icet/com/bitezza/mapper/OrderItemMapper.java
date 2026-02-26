@@ -18,6 +18,7 @@ public class OrderItemMapper {
         Product product = new Product();
         product.setId(dto.getProductId());   // BIT-100
 
+
         item.setProduct(product);
 
         return item;
