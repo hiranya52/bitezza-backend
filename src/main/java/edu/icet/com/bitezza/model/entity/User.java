@@ -2,8 +2,14 @@ package edu.icet.com.bitezza.model.entity;
 
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 public class User {
 
     @Id

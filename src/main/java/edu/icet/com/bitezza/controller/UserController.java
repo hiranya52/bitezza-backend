@@ -18,7 +18,7 @@ public class UserController {
 
     @GetMapping("/getUser")
     public UserDTO getUser(String username){
-        UserDTO userDTO = userService.getUser(username);
+        return userService.getUser(username);
     }
 
 }
