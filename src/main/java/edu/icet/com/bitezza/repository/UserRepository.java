@@ -1,6 +1,6 @@
 package edu.icet.com.bitezza.repository;
 
-import org.apache.catalina.User;
+import edu.icet.com.bitezza.model.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
